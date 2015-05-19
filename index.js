@@ -20,6 +20,7 @@ function everyFileFunction(instance, outputFile) {
 			if (instance._files[outputFile] === undefined) {
 				instance._files[outputFile] = [];
 			}
+			file.originalBase = file.base;
 			instance._files[outputFile].push(file);
 		}
 
@@ -32,7 +33,7 @@ function flushFunction(instance, outputFile) {
 		var out = this;
 		var myFiles = instance._files[outputFile];
 		if (myFiles.length > 0) {
-			instance._browserify(myFiles, {basedir: myFiles[0].base})
+			instance._browserify(myFiles, {basedir: myFiles[0].originalBase})
 					.bundle(function (err, result) {
 						if (err) {
 							doneFlush(err);
