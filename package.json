@@ -1,0 +1,19 @@
+{
+  "name": "asset-browserifier",
+  "version": "0.1.0",
+  "description": "Browserify assets inside gulp-useref",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Wolfgang Herget <wolfgang.herget@dfki.de>",
+  "license": "MIT",
+  "dependencies": {
+    "browserify": "^10.2.0",
+    "gulp-util": "^3.0.4",
+    "multimatch": "^2.0.0",
+    "through2": "^0.6.5",
+    "vinyl": "^0.4.6"
+  },
+  "repository": "https://github.com/l337r007/asset-browserifier.git"
+}
