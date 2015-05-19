@@ -12,7 +12,7 @@ function everyFileFunction(instance, outputFile) {
 		}
 
 		if (file.isStream()) {
-			cb(new gutil.PluginError('gulp-asset-broserify', 'Streaming not supported'));
+			cb(new gutil.PluginError('asset-browserifier', 'Streaming not supported'));
 			return;
 		}
 
