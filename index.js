@@ -44,7 +44,7 @@ function flushFunction(instance, outputFile) {
 								contents: result
 							});
 							out.push(f);
-							delete myFiles;
+							delete instance._files[outputFile];
 							doneFlush();
 						}
 					});
