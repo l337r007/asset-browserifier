@@ -1,6 +1,6 @@
 {
   "name": "asset-browserifier",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Browserify assets inside gulp-useref",
   "main": "index.js",
   "scripts": {
