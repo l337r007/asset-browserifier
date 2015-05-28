@@ -83,7 +83,8 @@ AssetBrowserifier.prototype.process = function(outputFile) {
 
 		// argh, browserify, y u no streamable!
 		stream.pipe(through.obj(function(file,enc,cb) {
-			b.add(file);
+			// save file.path, else it will be called "_stream_X"
+			b.add(file, {"file": file.path});
 			cb();
 		}, function (cb) {
 			var bundleStream = b.bundle();
