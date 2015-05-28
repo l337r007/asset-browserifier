@@ -75,7 +75,10 @@ var AssetBrowserifier = function (options) {
 
 AssetBrowserifier.prototype.process = function(outputFile) {
 		var stream = this._files[outputFile];
-		var b = this._options.browserify({basedir: this._baseDirs[outputFile]});
+		var finalOpts = defaults(this._options.browserifyOpts, {
+			basedir: this._baseDirs[outputFile]
+		});
+		var b = this._options.browserify(finalOpts);
 		var instance = this;
 
 		// argh, browserify, y u no streamable!
