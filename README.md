@@ -54,6 +54,13 @@ Default: `require('browserify')`
 
 Override the Browserify constructor, e.g. to use [watchify](https://github.com/substack/watchify).
 
+#### options.browserifyOpts
+
+Type: `Object`
+Default: `{}`
+
+Additional options to pass into the browserify constructor. Good for e.g. `{debug: true}` to enable sourcemap generation.
+
 #### options.filter
 
 Type: `Array`

@@ -75,12 +75,16 @@ var AssetBrowserifier = function (options) {
 
 AssetBrowserifier.prototype.process = function(outputFile) {
 		var stream = this._files[outputFile];
-		var b = this._options.browserify({basedir: this._baseDirs[outputFile]});
+		var finalOpts = defaults(this._options.browserifyOpts, {
+			basedir: this._baseDirs[outputFile]
+		});
+		var b = this._options.browserify(finalOpts);
 		var instance = this;
 
 		// argh, browserify, y u no streamable!
 		stream.pipe(through.obj(function(file,enc,cb) {
-			b.add(file);
+			// save file.path, else it will be called "_stream_X"
+			b.add(file, {"file": file.path});
 			cb();
 		}, function (cb) {
 			var bundleStream = b.bundle();
